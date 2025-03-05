@@ -6,6 +6,7 @@ project(
     LANGUAGES Fortran
 )
 
+variable_watch(PFUNIT_DRIVER)
 include(FetchContent)
 enable_testing()
 set(PFUNIT_VERSION "v4.9.0")

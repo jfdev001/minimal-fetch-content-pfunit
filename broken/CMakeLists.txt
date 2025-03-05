@@ -6,6 +6,7 @@ project(
     LANGUAGES Fortran
 )
 
+variable_watch(PFUNIT_DRIVER)
 add_subdirectory(src)
 
 enable_testing()
