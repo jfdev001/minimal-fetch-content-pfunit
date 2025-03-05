@@ -19,8 +19,23 @@ In `broken/`, `pFUnit` is placed  in the `extern` directory since this is
 structural more clear that the library is a dependency for testing. This is the 
 same structure used in, for example,
 [`fortran-lang/fftpack`](https://github.com/fortran-lang/fftpack/tree/main/dependencies).
-However, attempting to build `broken/` fails, see further.
+However, attempting to build `broken/` fails, 
 
 ```shell
-
+(
+cd broken
+cmake -S . -B build -DCMAKE_Fortran_COMPILER=mpif90
+cmake --build build 
+cd build
+ctest -L myproject 
+)
 ```
+
+with the below error
+
+> CMake Error: File /home/jf01/dev/minimal-fetch-content-pfunit/broken/test/.in does not exist.
+CMake Error at build/_deps/pfunit-src/include/add_pfunit_ctest.cmake:70 (configure_file):
+  configure_file Problem configuring file
+Call Stack (most recent call first):
+  test/CMakeLists.txt:1 (add_pfunit_ctest)
+
