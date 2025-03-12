@@ -39,3 +39,16 @@ CMake Error at build/_deps/pfunit-src/include/add_pfunit_ctest.cmake:70 (configu
 Call Stack (most recent call first):
   test/CMakeLists.txt:1 (add_pfunit_ctest)
 
+In `fixed/`, a commit in `pFUnit` is used that corresponds to a hot fix for the 
+problem encountered in `broken/`.
+
+```shell
+(
+cd fixed
+cmake -S . -B build 
+cmake --build build
+cd build
+ctest -L myproject
+)
+```
+
